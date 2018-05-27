@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 type Counter struct {
 	exist  bool
 	numCom int
@@ -34,5 +30,17 @@ func Generator(data []Commits) {
 		DateMap[data[i].date] = Counter{exist: true, numCom: DateMap[data[i].date].numCom + 1}
 		WeekMap[data[i].week] = Counter{exist: true, numCom: WeekMap[data[i].week].numCom + 1}
 	}
-	fmt.Println("debug")
+	/*
+		NameK := ExtractKey(NameMap)
+		DateK := ExtractKey(DateMap)
+		WeeK := ExtractKey(WeekMap)*/
+
+}
+
+func ExtractKey(table map[string]Counter) []string {
+	var keys []string
+	for key, _ := range table {
+		keys = append(keys, key)
+	}
+	return keys
 }
