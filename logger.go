@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-//commit data structure
+//Commits data structure
 type Commits struct {
 	name     string
 	year     int
@@ -18,7 +18,7 @@ type Commits struct {
 	filesMod int
 }
 
-func logger(path string) []Commits {
+func reader(path string) []Commits {
 	command := "--git-dir=" + path
 	out, _ := exec.Command("git", command, "log", "--pretty=#BEGIN%an;%ai", "--numstat").Output()
 	text := string(out[:])
