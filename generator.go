@@ -1,10 +1,17 @@
 package main
 
-// Generator di file JSON per la creazione dei dati tabellari della GUI
-func Generator(data []Commits) {
-	var nomi []string
-	for i := 0; i < len(data); i++ {
-		nomi[i] = data[i].name
-	}
+import (
+	"fmt"
+)
 
+// Generator of hash committer map, and other relative lists
+func Generator(data []Commits) {
+	NameMap := make(map[string]bool)
+
+	for i := range data {
+		if NameMap[data[i].name] == false {
+			NameMap[data[i].name] = true
+		}
+	}
+	fmt.Println("debug")
 }
